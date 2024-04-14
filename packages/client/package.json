@@ -1,0 +1,23 @@
+{
+  "name": "client",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tanstack/solid-query": "^5.30.1",
+    "@tanstack/solid-query-devtools": "^5.30.1",
+    "@trpc/client": "^10.45.2",
+    "solid-js": "^1.8.15"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0",
+    "vite-plugin-solid": "^2.10.2",
+    "server": "workspace:server"
+  }
+}
