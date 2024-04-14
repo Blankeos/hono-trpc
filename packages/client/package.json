@@ -12,11 +12,13 @@
     "@tanstack/solid-query": "^5.30.1",
     "@tanstack/solid-query-devtools": "^5.30.1",
     "@trpc/client": "^10.45.2",
-    "solid-js": "^1.8.15"
+    "solid-js": "^1.8.15",
+    "vike": "^0.4.168",
+    "vike-solid": "^0.4.3"
   },
   "devDependencies": {
     "typescript": "^5.2.2",
-    "vite": "^5.2.0",
+    "vite": "^5.2.8",
     "vite-plugin-solid": "^2.10.2",
     "server": "workspace:server"
   }
