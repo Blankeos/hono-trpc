@@ -1,18 +1,22 @@
-import { createSignal } from "solid-js";
+import { createMemo, type JSXElement } from "solid-js";
 import solidLogo from "./assets/solid.svg";
 import viteLogo from "/vite.svg";
-import { QueryClientProvider } from "@tanstack/solid-query";
+import {
+  QueryClient,
+  QueryClientProvider,
+  hydrate,
+} from "@tanstack/solid-query";
 import { SolidQueryDevtools } from "@tanstack/solid-query-devtools";
-import { QueryClient } from "@tanstack/query-core";
-import { Home } from "./pages/home.page";
 
-const queryClient = new QueryClient();
+import "../index.css";
 
-function App() {
+function App(props: { children: JSXElement }) {
+  const clientQuery = new QueryClient();
+
   return (
-    <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={clientQuery}>
       <SolidQueryDevtools />
-      <Home />
+      {props.children}
     </QueryClientProvider>
   );
 }

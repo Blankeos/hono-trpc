@@ -1,12 +1,20 @@
 import { createSignal, Show } from "solid-js";
-import { createMutation, createQuery } from "@tanstack/solid-query";
+import {
+  createMutation,
+  createQuery,
+  hydrate,
+  useQueryClient,
+} from "@tanstack/solid-query";
 import { trpcClient } from "../../lib/trpcClient";
+import { useData } from "vike-solid/useData";
+import { Data } from "./+data";
 
-export default function Home() {
-  const [count, setCount] = createSignal(0);
+export default function SSRPage() {
+  const data = useData<Data>();
+  const queryClient = useQueryClient();
+  hydrate(queryClient, data.dehydratedState);
 
   // User List
-
   const userListQuery = createQuery(() => ({
     queryKey: ["userList"],
     queryFn: async () => {
@@ -30,12 +38,11 @@ export default function Home() {
   }));
 
   // User By Name or Id
-
   const [queryByNameInput, setQueryByNameInput] = createSignal("Carlo");
   const [queryByIdInput, setQueryByIdInput] = createSignal("1");
 
   const userByIdOrNameQuery = createQuery(() => ({
-    queryKey: ["userByNameOrId", queryByNameInput(), queryByIdInput()],
+    queryKey: ["userByIdOrName", queryByNameInput(), queryByIdInput()],
     queryFn: async () => {
       let name: string | undefined;
       let id: string | undefined;
@@ -77,7 +84,7 @@ export default function Home() {
   return (
     <>
       <div>
-        (No SSR)
+        (Has SSR)
         {/* <button onClick={() => setCount(count() + 1)}>{count()}</button> */}
       </div>
 

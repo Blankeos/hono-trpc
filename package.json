@@ -1,5 +1,6 @@
 {
   "name": "hono-trpc",
+  "version": "0.0.0",
   "workspaces": [
     "packages/client",
     "packages/server"

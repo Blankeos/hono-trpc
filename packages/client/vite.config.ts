@@ -4,7 +4,7 @@ import vike from "vike/plugin";
 import vikeSolid from "vike-solid/vite";
 
 export default defineConfig({
-  plugins: [vike(), vikeSolid()],
+  plugins: [vike(), vikeSolid({})],
   /** Preview/Deployed server */
   preview: {
     port: 3000,
