@@ -64,10 +64,13 @@ The current differences I see are:
 - [x] Feature: Batch fetching with tRPC client.
   - When initializing the client, you can `httpBatchLink` to do batching.
   - You can use `httpLink` to not use batching. (The same as regular Hono RPC).
+- [x] Feature: When using the `client.*.*`, you can actually ctrl/cmd + click and it will take you to the actual resolver.
+  - example: `trpc.user.getList()` - ctrl clicking will take you to the resolver.
+  - This gets you to the actual resolver/service implementation right away. Not exactly difficult to do without though, but it's nice.
 - [x] Maturity: tRPC is (probably) more mature and battle-tested than Hono RPC.
 - [x] Paradigm: In `trpc.ts`, you can export reusable base:
   - Routers
-  - Procedures (e.g. protectedProcedure, publicProcedure) - The alternative would be to use **middlewares** for <u>controller-level</u> protection or use a **utility** for <u>endpoint-level</u> protection.
+  - Procedures (e.g. protectedProcedure, publicProcedure) - The alternative would be to use **middlewares** for <u>controller-level</u> protection or use a **utility** for <u>resolver-level</u> protection.
 - [x] Paradigm: REST-facing is difficult unless you use `trpc-openapi`.
   - 1. because if your URL queries are always inside `?input` of the URL query (e.g. `:4000?input="Carl"`)
   - 2. If your query has multiple variables, you can't do (e.g. `?name="Carl"&age="23"`) - I have not tested this yet.
