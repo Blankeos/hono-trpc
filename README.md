@@ -63,7 +63,7 @@ The current differences I see are:
 
 - [x] Feature: Batch fetching with tRPC client.
   - When initializing the client, you can `httpBatchLink` to do batching.
-  - You can use `httpLink` to not use batching.
+  - You can use `httpLink` to not use batching. (The same as regular Hono RPC).
 - [x] Maturity: tRPC is (probably) more mature and battle-tested than Hono RPC.
 - [x] Paradigm: In `trpc.ts`, you can export reusable base:
   - Routers
