@@ -1,23 +1,28 @@
-import { createMemo, type JSXElement } from "solid-js";
-import solidLogo from "./assets/solid.svg";
-import viteLogo from "/vite.svg";
-import {
-  QueryClient,
-  QueryClientProvider,
-  hydrate,
-} from "@tanstack/solid-query";
+import { type JSXElement } from "solid-js";
+import { QueryClient, QueryClientProvider } from "@tanstack/solid-query";
 import { SolidQueryDevtools } from "@tanstack/solid-query-devtools";
 
 import "../index.css";
 
 function App(props: { children: JSXElement }) {
-  const clientQuery = new QueryClient();
+  const queryClient = new QueryClient();
 
   return (
-    <QueryClientProvider client={clientQuery}>
-      <SolidQueryDevtools />
-      {props.children}
-    </QueryClientProvider>
+    <div>
+      <ul>
+        <li>
+          <a href="/">Home (No SSR)</a>
+        </li>
+        <li>
+          <a href="/ssr">SSR (Has server-side-rendering)</a>
+        </li>
+      </ul>
+      <hr />
+      <QueryClientProvider client={queryClient}>
+        <SolidQueryDevtools />
+        {props.children}
+      </QueryClientProvider>
+    </div>
   );
 }
 
