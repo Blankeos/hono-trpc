@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/solid-query";
 import { SolidQueryDevtools } from "@tanstack/solid-query-devtools";
 
 import "../index.css";
+import "../nprogress.css";
 
 function App(props: { children: JSXElement }) {
   const queryClient = new QueryClient();
