@@ -8,8 +8,8 @@
   "scripts": {
     "// dev": "This will work in Bun 1.1.4",
     "1.1.4 dev": "bun --filter * dev",
-    "client:dev": "bun run --cwd packages/client dev",
-    "server:dev": "bun run --cwd packages/server dev",
+    "client:dev": "bun run --filter 'client' dev",
+    "server:dev": "bun run --filter 'server' dev",
     "dev": "concurrently --names 'client,server' 'bun run client:dev' 'bun run server:dev'"
   },
   "devDependencies": {
